@@ -1,0 +1,19 @@
+{
+  "name": "pick_pocket",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "dependencies": {
+    "moment": "^2.15.1",
+    "request": "^2.75.0",
+    "twilio": "^2.11.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "LICENSED",
+  "description": "pick_pocket: rig monitoring app"
+}
