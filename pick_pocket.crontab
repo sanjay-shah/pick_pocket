@@ -1,0 +1,1 @@
+*/5 * * * * node /FULL_PATH/pick_pocket/app.js
