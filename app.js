@@ -40,7 +40,7 @@ request('http://dwarfpool.com/eth/api?wallet=' + wallet + '&email=' + email, fun
     
     var apiResponse = JSON.parse(body);
     
-    if((apiResponse.error === false) && (apiResponse.workers.rig1.alive === flase) && (apiResponse.workers.rig1.second_since_submit > 900)){
+    if((apiResponse.error === false) && (apiResponse.workers.rig1.alive === false) && (apiResponse.workers.rig1.second_since_submit > 900)){
       var lastSubmitSec = moment().unix() - apiResponse.workers.rig1.second_since_submit;
       var sinceNow = moment.unix(lastSubmitSec).fromNow(true);
       sendAlert('Warning! rig1 has not been hashing since ' + sinceNow);
