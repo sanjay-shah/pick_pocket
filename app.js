@@ -40,17 +40,17 @@ request('http://dwarfpool.com/eth/api?wallet=' + wallet + '&email=' + email, fun
     
     var apiResponse = JSON.parse(body);
     
-    if((apiResponse.error === false) && (apiResponse.workers.rig1.alive !== true)){
+    if((apiResponse.error === false) && (apiResponse.workers.rig1.alive === flase) && (apiResponse.workers.rig1.second_since_submit > 900)){
       var lastSubmitSec = moment().unix() - apiResponse.workers.rig1.second_since_submit;
       var sinceNow = moment.unix(lastSubmitSec).fromNow(true);
-      sendAlert('Wake Up! rig1 is down since ' + sinceNow);
+      sendAlert('Warning! rig1 has not been hashing since ' + sinceNow);
     } else if(apiResponse.error === true){
       sendAlert('Wake Up! Something is wrong with rig1. error_code: ' + apiResponse.error_code);
     } else {
       //
       var sinceNow = moment.unix(moment().unix() - apiResponse.workers.rig1.second_since_submit).fromNow();
       
-      if (apiResponse.workers.rig1.second_since_submit > 600) {
+      if (apiResponse.workers.rig1.second_since_submit > 900) {
         sendAlert('Warning: Last submit was ' + sinceNow + '. Things may not be ok. Check proxy\'s reject_rate');
       } else {
         console.log('Last submit was ' + sinceNow + '. Everything ok..');
