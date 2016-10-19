@@ -1,11 +1,13 @@
 # pick_pocket: Monitoring app for dwarfpool mining rig. Sends twilio SMS alerts(text messages)
 
-```git clone https://github.com/sanjay-shah/pick_pocket.git
+```
+git clone https://github.com/sanjay-shah/pick_pocket.git
 cd pick_pocket
 npm install
 ```
 
 Edit `config.js` file to add twilio and dwarfpool 
+
 ```
 config.twilio.account_sid = process.env.TWILIO_ACCOUNT_SID || 'BC123e722Hhk876ggTh8788hsa2e2f';
 config.twilio.auth_token =  process.env.TWILIO_AUTH_TOKEN || 'aa7g8nn2hg897h2a45hdw22';
