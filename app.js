@@ -25,9 +25,12 @@ function sendAlert(str) {
   }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
       if (!err) { 
-
+          console.log('Alert sent, got response from twilio: ')
           console.log(responseData.from); // outputs "+14506667788"
           console.log(responseData.body); // outputs "word to your mother."
+      } else {
+        console.log('Following alert could not be sent to: ' + phone_to + ' Check twilio logs');
+        console.log(str);
       }
   });
 
@@ -36,7 +39,7 @@ function sendAlert(str) {
 request('http://dwarfpool.com/eth/api?wallet=' + wallet + '&email=' + email, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     
-    console.log(body) // Show the HTML for the Google homepage. 
+    console.log(body);
     
     var apiResponse = JSON.parse(body);
     
